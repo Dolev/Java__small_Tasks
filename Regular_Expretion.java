@@ -10,6 +10,7 @@ class Solution {
     public boolean isMatch(String s, String p) {
         String check=p;
         char pre='*';
+      
         char sin_ch='.';
         int i=0;
         while(s.charAt(i)==check.charAt(i)){
@@ -26,5 +27,6 @@ class Solution {
             }
         }
         return true;
+      
     }
 }
