@@ -1,13 +1,10 @@
 
 class Solution {
-    
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode fake = new ListNode(0);
         ListNode p = fake;
-
         ListNode i = l1;
         ListNode j = l2;
-        
         int carry = 0;
 
         while(i != null&&j != null){
