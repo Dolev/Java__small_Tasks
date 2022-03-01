@@ -1,24 +1,34 @@
 class Solution {
      public int lengthOfLongestSubstring(String s) {
-        int counter=1;
-        int n=s.length();
-        String word=s;
-        char f;
-        char f1;
-        int j=0; 
-        String temp="";  
-        for(int i=j+1;i<n;i++){
-            f=word.charAt(j);
-            f1=word.charAt(i);
-            if(f!=f1){
-                if(!temp.contains(f)) temp+=f;
-                if(!temp.contains(f1)) temp+=f1;
-                counter++;
-            }
-            else{
-                if(!temp.contains(f)) temp+=f;
+      int n = s.length();
+     
+    // Result
+    int res = 0;
+     
+    for(int i = 0; i < n; i++)
+    {
+         
+        // Note : Default values in visited are false
+        boolean[] visited = new boolean[256];
+         
+        for(int j = i; j < n; j++)
+        {
+             
+            // If current character is visited Break the loop
+            if (visited[s.charAt(j)] == true)
+                break;
+ 
+            // Else update the result if this window is larger, and mark current character as visited.
+            else
+            {
+                res = Math.max(res, j - i + 1);
+                visited[s.charAt(j)] = true;
             }
         }
-        return counter;
+ 
+        // Remove the first character of previous window
+        visited[s.charAt(i)] = false;
+    }
+    return res;
     }
 }
