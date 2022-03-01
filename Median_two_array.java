@@ -19,4 +19,5 @@ class Solution {
         totSum=(sum1+sum2)/(m+n);
         return totSum;
     }
+    
 }
