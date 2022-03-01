@@ -1,19 +1,24 @@
 class Solution {
-    public int lengthOfLongestSubstring(String s) {
-        int counter=0;
+     public int lengthOfLongestSubstring(String s) {
+        int counter=1;
         int n=s.length();
         String word=s;
         char f;
-        String temp;  
-        String  strNew=word;
-        while(strNew!=""){
-            f=word.charAt(0);
-            temp=String.valueOf(f);
-            strNew = word.replace(temp, "");
-            counter++;
-            word=strNew;
+        char f1;
+        int j=0; 
+        String temp="";  
+        for(int i=j+1;i<n;i++){
+            f=word.charAt(j);
+            f1=word.charAt(i);
+            if(f!=f1){
+                if(!temp.contains(f)) temp+=f;
+                if(!temp.contains(f1)) temp+=f1;
+                counter++;
+            }
+            else{
+                if(!temp.contains(f)) temp+=f;
+            }
         }
-        //System.out.println(strNew);
         return counter;
     }
 }
